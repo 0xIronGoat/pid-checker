@@ -4,6 +4,9 @@ This script is designed to be called by other bash scripts.
 The scripts should pass in their script name and current PID, which `pid_check.sh` will then use to check if there's an existing PID for that script name.  
 If there is an existing PID matching that script name, it will check if it is a different PID from the one that called it (i.e. if it is a previous instance of the parent script running). If any PID is found that doesn't match this, then the script will exit and prevent the parent script from kicking off a duplicate run.  
 
+### Important Note:  
+This doesn't work if a script is executed with something like `bash script.sh` as that launches a `bash` process as viewed in `ps` rather than directly launching a `script.sh` process. There's probably a better way to handle this sort of check, but I don't know what that is yet, so just don't launch your scripts that way lol.
+
 ## Usage
 1. Download the script with `git clone https://github.com/0xIronGoat/pid-checker.git`
 
