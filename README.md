@@ -7,17 +7,17 @@ If there is an existing PID matching that script name, it will check if it is a 
 ## Usage
 1. Download the script with `git clone https://github.com/0xIronGoat/pid-checker.git`
 
-2. Place the below code at the top of any scripts for which you wish to prevent concurrent runs, making sure to update the file paths `~/BashProjects/pid-checker/pid_check.sh` to the location where you downloaded the script in step 1 above:  
+2. Place the below code at the top of any scripts for which you wish to prevent concurrent runs, making sure to update the file paths `~/pid-checker/pid_check.sh` to the location where you downloaded the script in step 1 above:  
 ```
 # Check for existence of pid_check.sh, otherwise exit this script
-[ ! -f ~/BashProjects/pid-checker/pid_check.sh ] && exit 127
+[ ! -f ~/pid-checker/pid_check.sh ] && exit 127
 
 # Get name and PID of this script run
 scriptname=$(basename $0)
 process_id=$$
 
 # Execute pid_check.sh with PID and name of this particular script run
-~/BashProjects/pid-checker/pid_check.sh $process_id $scriptname
+~/pid-checker/pid_check.sh $process_id $scriptname
 
 # An exit code of anything other than 0 from pid_check.sh means this script is already running under a different PID
 # so this script should be prevented from running
