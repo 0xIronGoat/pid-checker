@@ -5,7 +5,7 @@ The scripts should pass in their script name and current PID, which `pid_check.s
 If there is an existing PID matching that script name, it will check if it is a different PID from the one that called it (i.e. if it is a previous instance of the parent script running). If any PID is found that doesn't match this, then the script will exit and prevent the parent script from kicking off a duplicate run.  
 
 ## Usage
-1. Download the script with `https://github.com/0xIronGoat/pid-checker.git`
+1. Download the script with `git clone https://github.com/0xIronGoat/pid-checker.git`
 
 2. Place the below code at the top of any scripts for which you wish to prevent concurrent runs, making sure to update the file paths `~/BashProjects/pid_checker/pid_check.sh` to the location where you downloaded the script in step 1 above:  
 ```
